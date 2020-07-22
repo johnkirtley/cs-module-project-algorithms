@@ -7,17 +7,30 @@ Returns: a List of integers
 
 def product_of_all_other_numbers(arr):
 
-    def multiply(a, b):
-        return a * b
+    # def multiply(a, b):
+    #     return a * b
 
-    newArr = []
+    # newArr = []
+
+    # for i in range(len(arr)):
+    #     temp = arr[:i]+arr[i+1:]
+    #     result = reduce(multiply, temp)
+    #     newArr.append(result)
+
+    # return newArr
+
+    placeholder = [0] * len(arr)
 
     for i in range(len(arr)):
-        temp = arr[:i]+arr[i+1:]
-        result = reduce(multiply, temp)
-        newArr.append(result)
+        newArr = arr.copy()
+        newArr[i] = 1
+        result = 1
 
-    return newArr
+        for value in newArr:
+            result = result * value
+            placeholder[i] = result
+
+    return placeholder
 
 
 if __name__ == '__main__':
