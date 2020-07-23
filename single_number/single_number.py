@@ -1,7 +1,9 @@
+import time
 '''
 Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
+start = time.time()
 
 
 def single_number(arr):
@@ -18,6 +20,21 @@ def single_number(arr):
     for key, value in count.items():
         if value == 1:
             return key
+
+    # s = set()
+
+    # for x in arr:
+    #     if x in s:
+    #         s.remove(x)
+    #     else:
+    #         s.add(x)
+
+    # return list(s)[0]
+
+
+end = time.time()
+
+print(f"Time taken was {end - start}.")
 
 
 if __name__ == '__main__':

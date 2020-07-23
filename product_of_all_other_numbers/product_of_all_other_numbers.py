@@ -1,36 +1,41 @@
 from functools import reduce
+import time
 '''
 Input: a List of integers
 Returns: a List of integers
 '''
 
+start = time.time()
+
 
 def product_of_all_other_numbers(arr):
 
-    # def multiply(a, b):
-    #     return a * b
-
-    # newArr = []
-
-    # for i in range(len(arr)):
-    #     temp = arr[:i]+arr[i+1:]
-    #     result = reduce(multiply, temp)
-    #     newArr.append(result)
-
-    # return newArr
-
-    placeholder = [0] * len(arr)
+    newArr = []
 
     for i in range(len(arr)):
-        newArr = arr.copy()
-        newArr[i] = 1
-        result = 1
+        temp = arr[:i]+arr[i+1:]
+        result = reduce(lambda a, b: a * b, temp)
+        newArr.append(result)
 
-        for value in newArr:
-            result = result * value
-            placeholder[i] = result
+    return newArr
 
-    return placeholder
+    # placeholder = [0] * len(arr)
+
+    # for i in range(len(arr)):
+    #     newArr = arr.copy()
+    #     newArr[i] = 1
+    #     result = 1
+
+    #     for value in newArr:
+    #         result = result * value
+    #         placeholder[i] = result
+
+    # return placeholder
+
+
+end = time.time()
+
+print(f"Time taken was {end - start}.")
 
 
 if __name__ == '__main__':

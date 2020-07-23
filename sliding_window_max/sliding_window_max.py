@@ -1,11 +1,14 @@
+import time
+
 '''
 Input: a List of integers as well as an integer `k` representing the size of the sliding window
 Returns: a List of integers
 '''
 
+start = time.time()
+
 
 def sliding_window_max(nums, k):
-    # Your code here
     start = 0
     end = k
     result = []
@@ -15,15 +18,18 @@ def sliding_window_max(nums, k):
 
         max_value = -1
 
-        for i in range(len(window)):
-            if window[i] > max_value:
-                max_value = window[i]
+        max_value = max(window)
 
         result.append(max_value)
 
         start += 1
         end += 1
     return result
+
+
+end = time.time()
+
+print(f"Time was {end - start}")
 
 
 if __name__ == '__main__':
